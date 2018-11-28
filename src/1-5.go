@@ -17,7 +17,6 @@ func convertToBin(n int) string {
 }
 
 func printline(filename string) {
-
 	file, err := os.Open(filename)
 	if err != nil {
 		panic(err)
@@ -28,8 +27,14 @@ func printline(filename string) {
 	}
 }
 
+func forever() {
+	for {
+		fmt.Println("abc")
+	}
+}
+
 func main() {
 
-	println(convertToBin(5))
-
+	//println(convertToBin(5))
+	printline("src/1-5.go")
 }
