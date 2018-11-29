@@ -36,5 +36,5 @@ func forever() {
 func main() {
 
 	//println(convertToBin(5))
-	printline("src/1-5.go")
+	printline("src/loop.go")
 }

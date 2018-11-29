@@ -16,7 +16,7 @@ func bounded(v int) int {
 }
 
 func readFile() {
-	const filename = "src/1-4.go"
+	const filename = "src/condition.go"
 	if contents, err := ioutil.ReadFile(filename); err != nil {
 		fmt.Println(err)
 	} else {
