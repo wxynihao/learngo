@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+	"runtime"
+)
 
 func div(a, b int) (int, int) {
 	return a / b, a % b
@@ -31,6 +35,24 @@ func evalWithError(a, b int, op string) (int, error) {
 		return 0, fmt.Errorf(
 			"unsupported operation: %s", op)
 	}
+}
+
+func apply(op func(int, int) int, a, b int) int {
+	//通过反射拿到函数的方法
+	p := reflect.ValueOf(op).Pointer()
+	opName := runtime.FuncForPC(p).Name()
+	fmt.Printf("Calling function %s with args "+
+		"(%d, %d)\n", opName, a, b)
+
+	return op(a, b)
+}
+
+func sum(numbers ...int) int {
+	s := 0
+	for i := range numbers {
+		s += numbers[i]
+	}
+	return s
 }
 
 func main() {
